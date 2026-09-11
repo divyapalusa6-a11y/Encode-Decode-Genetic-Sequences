@@ -70,10 +70,11 @@ def encode_strand(strand):
         if strand[index - 1] == strand[index]:
             count += 1
         else:
-            new_entry = strand[index - 1] + count
+            new_entry = strand[index - 1] + str(count)
             encoding.append(new_entry)
             count = 1
-
+    final_entry = strand[-1] + str(count) #catch the last entry
+    encoding.append(final_entry)
     return "".join(encoding)
 
 def decode_strand(encoding):
